@@ -1,4 +1,4 @@
-const palabraSecreta = "OnePiece";
+const palabraSecreta = "cocacola";
 let letrasAdivinadas = [];
 let intentosRestantes = 6;
 
