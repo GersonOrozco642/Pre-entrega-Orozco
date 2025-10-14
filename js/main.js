@@ -1,4 +1,4 @@
-const palabraSecreta = "Paradoja existencial";
+const palabraSecreta = "paradojaexistencial";
 let letrasAdivinadas = [];
 let intentosRestantes = 6;
 
