@@ -1,41 +1,31 @@
-const palabraSecreta = "paradojaexistencial";
-let letrasAdivinadas = [];
-let intentosRestantes = 6;
+const banco = [
+    { palabra: 'css', dificultad: 'facil' },
+    { palabra: 'git', dificultad: 'facil' },
+    { palabra: 'html', dificultad: 'facil' },
+    { palabra: 'json', dificultad: 'facil' },
+    { palabra: 'node', dificultad: 'facil' },
+    { palabra: 'vite', dificultad: 'facil' },
+    { palabra: 'react', dificultad: 'medio' },
+    { palabra: 'array', dificultad: 'medio' },
+    { palabra: 'clase', dificultad: 'medio' },
+    { palabra: 'objeto', dificultad: 'medio' },
+    { palabra: 'funcion', dificultad: 'medio' },
+    { palabra: 'variable', dificultad: 'medio' },
+    { palabra: 'servidor', dificultad: 'medio' },
+    { palabra: 'navegador', dificultad: 'dificil' },
+    { palabra: 'framework', dificultad: 'dificil' },
+    { palabra: 'algoritmo', dificultad: 'dificil' },
+    { palabra: 'javascript', dificultad: 'dificil' },
+    { palabra: 'asincronia', dificultad: 'dificil' },
+    { palabra: 'recursividad', dificultad: 'dificil' },
+    { palabra: 'paradojaexistencial', dificultad: 'dificil' },
+];
 
-const palabraDiv = document.getElementById("palabra");
-const letraInput = document.getElementById("letra");
-const mensajesDiv = document.getElementById("mensajes");
-const adivinarButton = document.getElementById("adivinar");
-
-function mostrarPalabra() {
-    palabraDiv.textContent = palabraSecreta.split('').map(letra => (letrasAdivinadas.includes(letra) ? letra : '_')).join(' ');
-}
-
-function comprobarLetra() {
-    const letra = letraInput.value.toLowerCase();
-    letraInput.value = '';
-
-    if (!letrasAdivinadas.includes(letra) && letra) {
-        letrasAdivinadas.push(letra);
-
-        if (!palabraSecreta.includes(letra)) {
-            intentosRestantes--;
-            mensajesDiv.textContent = `Letra incorrecta. Te quedan ${intentosRestantes} intentos.`;
-        } else {
-            mensajesDiv.textContent = `¡Correcto!`;
-        }
-    } else {
-        mensajesDiv.textContent = "Ya adivinaste esa letra. Intenta otra vez.";
-    }
-
-    mostrarPalabra();
-
-    if (palabraSecreta.split('').every(letra => letrasAdivinadas.includes(letra))) {
-        mensajesDiv.textContent = `¡Felicidades! Adivinaste la palabra: ${palabraSecreta}`;
-    } else if (intentosRestantes === 0) {
-        mensajesDiv.textContent = `Perdiste. La palabra era: ${palabraSecreta}`;
-    }
-}
-
-adivinarButton.addEventListener("click", comprobarLetra);
-mostrarPalabra();
+const partesAhorcado = [
+    'parte-cabeza',
+    'parte-cuerpo',
+    'parte-brazo-izq',
+    'parte-brazo-der',
+    'parte-pierna-izq',
+    'parte-pierna-der',
+];
