@@ -29,3 +29,21 @@ const partesAhorcado = [
     'parte-pierna-izq',
     'parte-pierna-der',
 ];
+
+const palabraDiv = document.getElementById('palabra');
+const mensajeDiv = document.getElementById('mensaje');
+const tecladoDiv = document.getElementById('teclado');
+const vidasP = document.getElementById('vidas');
+const dificultadSpan = document.getElementById('dificultad');
+const reiniciarBtn = document.getElementById('reiniciar');
+
+let palabraSecreta = '';
+let letrasAdivinadas = [];
+let errores = 0;
+const maxErrores = partesAhorcado.length;
+let juegoActivo = true;
+
+function elegirPalabra() {
+    const palabra = banco[Math.floor(Math.random() * banco.length)];
+    
+}
