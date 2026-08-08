@@ -90,3 +90,58 @@ body {
     stroke-width: 4;
     stroke-linecap: round;
 }
+
+.parte {
+    fill: none;
+    stroke: var(--pink);
+    stroke-width: 4;
+    stroke-linecap: round;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+ 
+circle.parte {
+    fill: none;
+}
+ 
+#vidas {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+ 
+.word-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+ 
+.palabra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    justify-content: center;
+    min-height: 3rem;
+}
+ 
+.palabra span {
+    border-bottom: 3px solid var(--cyan);
+    min-width: 1.3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.mensajes {
+    min-height: 1.3rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--cyan);
+}
+ 
+.mensajes.ganaste { color: var(--green); }
+.mensajes.perdiste { color: var(--red); }
