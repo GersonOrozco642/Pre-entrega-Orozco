@@ -145,3 +145,73 @@ circle.parte {
  
 .mensajes.ganaste { color: var(--green); }
 .mensajes.perdiste { color: var(--red); }
+
+.teclado {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
+    gap: 0.4rem;
+}
+ 
+.teclado button {
+    padding: 0.5rem 0;
+    background: #1c2531;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.1s ease, background 0.2s ease;
+}
+ 
+.teclado button:hover:not(:disabled) {
+    background: #263141;
+    transform: translateY(-2px);
+}
+ 
+.teclado button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+ 
+.teclado button.correcta {
+    background: var(--green);
+    color: #06210f;
+    border-color: var(--green);
+}
+ 
+.teclado button.incorrecta {
+    background: var(--red);
+    color: #2b0505;
+    border-color: var(--red);
+}
+ 
+.btn-reiniciar {
+    align-self: center;
+    padding: 0.7rem 1.6rem;
+    background: transparent;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+ 
+.btn-reiniciar:hover {
+    background: var(--cyan);
+    color: #04262b;
+}
+ 
+@media (max-width: 640px) {
+    .game-board {
+        grid-template-columns: 1fr;
+    }
+ 
+    .palabra {
+        font-size: 1.5rem;
+    }
+}
