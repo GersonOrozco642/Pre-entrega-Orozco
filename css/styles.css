@@ -1,36 +1,50 @@
+:root {
+    --bg: #0d1117;
+    --panel: #151b23;
+    --border: #2a3341;
+    --text: #e6edf3;
+    --text-dim: #8b96a5;
+    --pink: #ff2e88;
+    --cyan: #00e5ff;
+    --green: #39ff88;
+    --yellow: #ffd23f;
+    --red: #ff5c5c;
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Courier New', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 2rem 1rem;
 }
-
-.container {
-    text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
+.game {
+    width: 100%;
+    max-width: 760px;
 }
-
-input {
-    padding: 10px;
-    margin: 10px 0;
+ 
+.game-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
 }
-
-button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+ 
+.game-header h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
-
-button:hover {
-    background-color: #218838;
+ 
+.game-header .dot {
+    color: var(--cyan);
 }
