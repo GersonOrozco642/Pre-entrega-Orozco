@@ -45,5 +45,18 @@ let juegoActivo = true;
 
 function elegirPalabra() {
     const palabra = banco[Math.floor(Math.random() * banco.length)];
-    
+    palabraActual = palabra.palabra;
+    dificultadSpan.textContent = palabra.dificultad;
+    dificultadSpan.className = `badge ${palabra.dificultad}`;
+}
+
+function crearTeclado() {
+    tecladoDiv.innerHTML = '';
+    const letras = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    letras.forEach(letra => {
+        const btn = document.createElement('button');
+        btn.textContent = letra;
+        btn.addEventListener('click', () => comprobarLetra(letra, btn));
+        tecladoDiv.appendChild(btn);
+    });
 }
