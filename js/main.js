@@ -77,3 +77,56 @@ function actualizarAhorcado() {
     });
     vidasP.textContent = `${maxErrores - errores} intentos restantes`;
 }
+
+function terminarJuego(gano) {
+    juegoActivo = false;
+    mensajesDiv.classList.remove('ganaste', 'perdiste');
+    mensajesDiv.classList.add(gano ? 'ganaste' : 'perdiste');
+    mensajesDiv.textContent = gano
+        ? '¡Ganaste! Adivinaste la palabra.'
+        : `Perdiste. La palabra era: ${palabraActual}`;
+    tecladoDiv.querySelectorAll('button').forEach(btn => btn.disabled = true);
+    if (!gano) {
+        palabraDiv.innerHTML = '';
+        palabraActual.split('').forEach(letra => {
+            const span = document.createElement('span');
+            span.textContent = letra;
+            palabraDiv.appendChild(span);
+        });
+    }
+}
+
+function comprobarLetra(letra, btn) {
+    if (!juegoActivo || letrasAdivinadas.includes(letra)) return;
+ 
+    letrasAdivinadas.push(letra);
+    if (btn) btn.disabled = true;
+ 
+    if (palabraActual.includes(letra)) {
+        if (btn) btn.classList.add('correcta');
+        mensajesDiv.classList.remove('ganaste', 'perdiste');
+        mensajesDiv.textContent = '¡Correcto!';
+    } else {
+        if (btn) btn.classList.add('incorrecta');
+        errores++;
+        actualizarAhorcado();
+        mensajesDiv.classList.remove('ganaste', 'perdiste');
+        mensajesDiv.textContent = `Letra incorrecta. Te quedan ${maxErrores - errores} intentos.`;
+    }
+ 
+    mostrarPalabra();
+ 
+    const gano = palabraActual.split('').every(letra => letrasAdivinadas.includes(letra));
+    if (gano) {
+        terminarJuego(true);
+    } else if (errores >= maxErrores) {
+        terminarJuego(false);
+    }
+}
+ 
+document.addEventListener('keydown', (e) => {
+        const letra = e.key.toLowerCase();
+        if (!/^[a-z]$/.test(letra)) return;
+        const btn = [...tecladoDiv.children].find(b => b.textContent === letra);
+        comprobarLetra(letra, btn);
+    });
