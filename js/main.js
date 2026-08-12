@@ -131,4 +131,20 @@ function comprobarLetra(letra, btn) {
         comprobarLetra(letra, btn);
     });
 
+    function iniciarJuego() {
+    elegirPalabra();
+    letrasAdivinadas = [];
+    errores = 0;
+    juegoActivo = true;
+    mensajesDiv.classList.remove('ganaste', 'perdiste');
+    mensajesDiv.textContent = '';
+    crearTeclado();
+    mostrarPalabra();
+    actualizarAhorcado();
+}
+
+reiniciarBtn.addEventListener('click', iniciarJuego);
+
+iniciarJuego();
+
     
