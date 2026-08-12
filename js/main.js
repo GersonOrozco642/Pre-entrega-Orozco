@@ -31,7 +31,7 @@ const partesAhorcado = [
 ];
 
 const palabraDiv = document.getElementById('palabra');
-const mensajeDiv = document.getElementById('mensajes');
+const mensajesDiv = document.getElementById('mensajes');
 const tecladoDiv = document.getElementById('teclado');
 const vidasP = document.getElementById('vidas');
 const dificultadSpan = document.getElementById('dificultad');
