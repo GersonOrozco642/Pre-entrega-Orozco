@@ -60,3 +60,20 @@ function crearTeclado() {
         tecladoDiv.appendChild(btn);
     });
 }
+
+function mostrarPalabra() {
+    palabraDiv.innerHTML = '';
+    palabraActual.split('').forEach(letra => {
+        const span = document.createElement('span');
+        span.textContent = letrasAdivinadas.includes(letra) ? letra : '';
+        palabraDiv.appendChild(span);
+    });
+}
+
+function actualizarAhorcado() {
+    partesAhorcado.forEach((id, index) => {
+        const parte = document.getElementById(id);
+        parte.style.opacity = index < errores ? '1' : '0';
+    });
+    vidasP.textContent = `${maxErrores - errores} intentos restantes`;
+}
