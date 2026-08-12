@@ -124,9 +124,25 @@ function comprobarLetra(letra, btn) {
     }
 }
  
-document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {
         const letra = e.key.toLowerCase();
         if (!/^[a-z]$/.test(letra)) return;
         const btn = [...tecladoDiv.children].find(b => b.textContent === letra);
         comprobarLetra(letra, btn);
     });
+
+    function iniciarJuego() {
+    elegirPalabra();
+    letrasAdivinadas = [];
+    errores = 0;
+    juegoActivo = true;
+    mensajesDiv.classList.remove('ganaste', 'perdiste');
+    mensajesDiv.textContent = '';
+    crearTeclado();
+    mostrarPalabra();
+    actualizarAhorcado();
+}
+ 
+reiniciarBtn.addEventListener('click', iniciarJuego);
+ 
+iniciarJuego();
